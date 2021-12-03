@@ -125,10 +125,10 @@ int palindrome::palindromeCount(const char * str)
 
   int j = 0;
   int k = sl - 1;
-  int count = 0;
+  float count = 0;
   while (j <= k)
   {
-   if (str[j++] == str[k--]) count++;
+   if (str[j++] == str[k--]) count = count + 1;
   }
 
   return count;
@@ -139,7 +139,7 @@ float palindrome::palindromePercentage(const char * str)
 {
   int sl = strlen(str);
   if (sl == 0) return 0;
-  return (1.0 * palindromeCount) / sl;
+  return (1.0 * palindromeCount(str)) / sl;
 }
 
 
