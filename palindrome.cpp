@@ -1,13 +1,14 @@
-#pragma once
 //
 //    FILE: palindrome.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.0
+// VERSION: 0.1.1
 // PURPOSE: Arduino library to do palindrome experiments.
 //     URL: https://github.com/RobTillaart/palindrome
 //
 //  HISTORY:
 //  0.1.0  2021-12-02  initial version
+//  0.1.1  2021-12-03  add palindromeCount(), palindromePercentage()
+
 
 
 #include "palindrome.h"
@@ -20,6 +21,7 @@ palindrome::palindrome()
 
 bool palindrome::isPalindrome(const char * str)
 {
+  if (str == NULL) return false;
   int sl = strlen(str);
   if (sl == 0) return false;
 
@@ -37,6 +39,7 @@ bool palindrome::isPalindrome(const char * str)
 
 int palindrome::findPalindrome(const char * str, int & position, int & length)
 {
+  if (str == NULL) return 0;
   int posOdd = 0, lengthOdd = 0;
   int posEven = 0, lengthEven = 0;
   findOddPalindrome(str, posOdd, lengthOdd);
@@ -55,6 +58,7 @@ int palindrome::findPalindrome(const char * str, int & position, int & length)
 
 int palindrome::findEvenPalindrome(const char * str, int & position, int & length)
 {
+  if (str == NULL) return 0;
   int sl = strlen(str);
   if (sl == 0) return -1;
 
@@ -87,6 +91,7 @@ int palindrome::findEvenPalindrome(const char * str, int & position, int & lengt
 
 int palindrome::findOddPalindrome(const char * str, int & position, int & length)
 {
+  if (str == NULL) return 0;
   int sl = strlen(str);
   if (sl == 0) return -1;
 
@@ -116,12 +121,32 @@ int palindrome::findOddPalindrome(const char * str, int & position, int & length
 }
 
 
-float palindrome::palindromePercentage(const char * str)
+int palindrome::palindromeCount(const char * str)
 {
-  return 0;
+  if (str == NULL) return 0;
+  int sl = strlen(str);
+  if (sl == 0) return 0;
+
+  int j = 0;
+  int k = sl - 1;
+  int count = 0;
+  while (j <= k)
+  {
+    if (str[j++] == str[k--]) count++;
+  }
+
+  return count;
 }
 
 
+float palindrome::palindromePercentage(const char * str)
+{
+  if (str == NULL) return 0;
+  int sl = strlen(str);
+  if (sl == 0) return 0;
+  if (sl % 2 == 1) sl++;  // correction for odd length strings
+  return (200.0 * palindromeCount(str)) / sl;
+}
 
 
 // -- END OF FILE --
