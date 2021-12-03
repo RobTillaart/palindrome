@@ -2,12 +2,14 @@
 //
 //    FILE: palindrome.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.0
+// VERSION: 0.1.1
 // PURPOSE: Arduino library to do palindrome experiments.
 //     URL: https://github.com/RobTillaart/palindrome
 //
 //  HISTORY:
 //  0.1.0  2021-12-02  initial version
+//  0.1.1  2021-12-03  add palindromeCount(), palindromePercentage()
+
 
 
 #include "palindrome.h"
@@ -116,9 +118,28 @@ int palindrome::findOddPalindrome(const char * str, int & position, int & length
 }
 
 
+int palindrome::palindromeCount(const char * str)
+{
+  int sl = strlen(str);
+  if (sl == 0) return 0;
+
+  int j = 0;
+  int k = sl - 1;
+  int count = 0;
+  while (j <= k)
+  {
+   if (str[j++] == str[k--]) count++;
+  }
+
+  return count;
+}
+
+
 float palindrome::palindromePercentage(const char * str)
 {
-  return 0;
+  int sl = strlen(str);
+  if (sl == 0) return 0;
+  return (1.0 * palindromeCount) / sl;
 }
 
 
