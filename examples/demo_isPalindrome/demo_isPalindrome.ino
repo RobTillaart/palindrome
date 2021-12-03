@@ -18,28 +18,25 @@ void setup()
   Serial.begin(115200);
   Serial.println(__FILE__);
 
-  bool b = pd.isPalindrome("");
-  Serial.println(b ? "true" : "false");
-  b = pd.isPalindrome("a");
-  Serial.println(b ? "true" : "false");
-  b = pd.isPalindrome("aa");
-  Serial.println(b ? "true" : "false");
-  b = pd.isPalindrome("aaa");
-  Serial.println(b ? "true" : "false");
-  b = pd.isPalindrome("aaaa");
-  Serial.println(b ? "true" : "false");
+  test("");
+  test("a");
+  test("aa");
+  test("aaa");
+  test("aaaa");
+  Serial.println();
+  
+  test("ab");
+  test("aba");
+  test("abaa");
+  test("aabaa");
+  test("abababa");
   Serial.println();
 
-  b = pd.isPalindrome("ab");
-  Serial.println(b ? "true" : "false");
-  b = pd.isPalindrome("aba");
-  Serial.println(b ? "true" : "false");
-  b = pd.isPalindrome("abaa");
-  Serial.println(b ? "true" : "false");
-  b = pd.isPalindrome("aabaa");
-  Serial.println(b ? "true" : "false");  
-  b = pd.isPalindrome("abababa");
-  Serial.println(b ? "true" : "false");
+  test("11011");
+  test("0011011");
+  test("123");
+  test("/*  */");
+  test("##############");
   Serial.println();
 
   Serial.println("done...");
@@ -49,6 +46,15 @@ void setup()
 void loop()
 {
 }
+
+
+void test(const char * str)
+{
+  bool b = pd.isPalindrome(str);
+  Serial.print(str);
+  Serial.println(b ? "\ttrue" : "\tfalse");
+}
+
 
 
 // -- END OF FILE --
