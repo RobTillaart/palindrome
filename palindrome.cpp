@@ -20,7 +20,18 @@ palindrome::palindrome()
 
 bool palindrome::isPalindrome(const char * str)
 {
-  return false;
+  int sl = strlen(str);
+  if (sl == 0) return false;
+
+  int j = 0;
+  int k = sl - 1;
+  bool palin = (str[j++] == str[k--]);
+  while (palin & ( j < k ))
+  {
+    palin = (str[j++] == str[k--]);
+  }
+
+  return palin;
 }
 
 

@@ -34,11 +34,20 @@ The library is tested with an Arduino UNO, random string of 1600 characters.
 The examples show the basic working of the functions.
 
 
+## Questions
+
+- is an empty string a palindrome?
+
+
 ## Future
 
 - update documentation
 - improve algorithms
 - investigate Print interface?
 - investigate palindrome for numbers - radix 2..16 (36?)
+- investigate case (in)sensitive flag?
+- robustness
+  - NULL pointer
+
 
 
