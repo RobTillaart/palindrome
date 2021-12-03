@@ -21,6 +21,7 @@ palindrome::palindrome()
 
 bool palindrome::isPalindrome(const char * str)
 {
+  if (str == NULL) return false;
   int sl = strlen(str);
   if (sl == 0) return false;
 
@@ -38,6 +39,7 @@ bool palindrome::isPalindrome(const char * str)
 
 int palindrome::findPalindrome(const char * str, int & position, int & length)
 {
+  if (str == NULL) return 0;
   int posOdd = 0, lengthOdd = 0;
   int posEven = 0, lengthEven = 0;
   findOddPalindrome(str, posOdd, lengthOdd);
@@ -56,6 +58,7 @@ int palindrome::findPalindrome(const char * str, int & position, int & length)
 
 int palindrome::findEvenPalindrome(const char * str, int & position, int & length)
 {
+  if (str == NULL) return 0;
   int sl = strlen(str);
   if (sl == 0) return -1;
 
@@ -88,6 +91,7 @@ int palindrome::findEvenPalindrome(const char * str, int & position, int & lengt
 
 int palindrome::findOddPalindrome(const char * str, int & position, int & length)
 {
+  if (str == NULL) return 0;
   int sl = strlen(str);
   if (sl == 0) return -1;
 
@@ -119,15 +123,16 @@ int palindrome::findOddPalindrome(const char * str, int & position, int & length
 
 int palindrome::palindromeCount(const char * str)
 {
+  if (str == NULL) return 0;
   int sl = strlen(str);
   if (sl == 0) return 0;
 
   int j = 0;
   int k = sl - 1;
-  float count = 0;
+  int count = 0;
   while (j <= k)
   {
-   if (str[j++] == str[k--]) count = count + 1;
+    if (str[j++] == str[k--]) count++;
   }
 
   return count;
@@ -136,12 +141,12 @@ int palindrome::palindromeCount(const char * str)
 
 float palindrome::palindromePercentage(const char * str)
 {
+  if (str == NULL) return 0;
   int sl = strlen(str);
   if (sl == 0) return 0;
-  return (1.0 * palindromeCount(str)) / sl;
+  if (sl % 2 == 1) sl++;  // correction for odd length strings
+  return (200.0 * palindromeCount(str)) / sl;
 }
-
-
 
 
 // -- END OF FILE --

@@ -26,8 +26,8 @@ The library is tested with an Arduino UNO, random string of 1600 characters.
 - **int findEvenPalindrome(const char \* str, int & position, int & length)** find the longest palindrome in a string with even length. (first occurrence).
 - **int findOddPalindrome(const char \* str, int & position, int & length)** find the longest palindrome in a string with odd length. (first occurrence).
 - **bool isPalindrome(const char \* str)** checks if a string is a palindrome.
-- **int palindromeCount(const char \* str)** returns the count of matching pairs in a string.
-- **float palindromePercentage(const char \* str)** returns the count as percentage. 
+- **int palindromeCount(const char \* str)** returns the count of matching pairs in a string. This is at most the ```length / 2 + 1```.
+- **float palindromePercentage(const char \* str)** returns the count as percentage 0.0 .. 100.0 %
 
 
 ## Operation
@@ -43,14 +43,14 @@ The examples show the basic working of the functions.
 ## Future
 
 - update documentation
+- should this be a class?
+- function names?
+  - palindromeCount -- symmetryCount?
+  - palindromePercentage -- symmetryPercentage?
+- improve algorithms
+  - merge odd / even find algorithms?
 - investigate Print interface?
 - investigate palindrome for numbers - radix 2..16 (36?)
-- improve algorithms
 - investigate case (in)sensitive flag?
 - investigate ignore spaces flag?
-- robustness
-  - NULL pointer
-  - unit tests
-
-
 
