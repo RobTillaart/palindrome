@@ -1,4 +1,4 @@
-# Change Log Optoma
+# Change Log palindrome
 
 All notable changes to this project will be documented in this file.
 
