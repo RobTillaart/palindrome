@@ -11,7 +11,7 @@
 
 # Palindrome
 
-Library for palindrome search
+Arduino library to do palindrome experiments, including search in char arrays.
 
 
 ## Description
@@ -22,9 +22,15 @@ the longest palindrome within a character string.
 Writing the library was triggered by a friend Reinier who was proud his name
 was a palindrome.
 
+The algorithm of finding a palindrome in a string is based upon the assumption
+that every character can be the middle character of a palindrome. 
+From there start comparing the chars on the left and the chars right.
+As long as they match the palindrome "grows". 
+
 This library is mainly for educational purpose, however other
 applications are possible. Please share your ideas.
 
+Feedback as always is welcome.
 
 ### tests
 
@@ -72,6 +78,11 @@ The examples show the basic working of the functions.
 
 #### Should
 
+- investigate case (in)sensitive flag?
+- use the palindrome algorithm to match DNA
+  - Adenine + Thymine, Guanine + Cytosine
+  - thus ATTGCA.TGCAAT could be seen as an DNA-palindrome (always even)
+  
 #### Could
 
 - function names?
@@ -81,7 +92,7 @@ The examples show the basic working of the functions.
   - merge odd / even find algorithms?
 - investigate Print interface?
 - investigate palindrome for numbers - radix 2..16 (36?)
-- investigate case (in)sensitive flag?
+  - String(number).toCharArray();
 - investigate ignore spaces flag?
 
 #### Wont
