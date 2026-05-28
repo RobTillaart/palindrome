@@ -34,9 +34,16 @@ Feedback as always is welcome.
 
 ### tests
 
-The library is tested with an Arduino UNO R3, random string of 1600 characters.
+The library is tested with an Arduino UNO R3, random string of 1600 characters
+(only 4 different characters).
 
-(TODO performance compare)
+Indicative performance figures, based upon demo.ino.
+
+| function           | time (us) | pos | len | palindrome  |
+|:-------------------|:---------:|:---:|:---:|:------------|
+| findOddPalindrome  |   4848    | 871 |  11 | TGGCGCGCGGT |
+| findEvenPalindrome |   2860    | 163 |   8 | GGGAAGGG    |
+| findPalindrome     |   7700    | 871 |  11 | TGGCGCGCGGT |
 
 
 ## Interface
