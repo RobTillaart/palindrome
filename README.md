@@ -25,7 +25,16 @@ was a palindrome.
 The algorithm of finding a palindrome in a string is based upon the assumption
 that every character can be the middle character of a palindrome. 
 From there start comparing the chars on the left and the chars right.
-As long as they match the palindrome "grows". 
+As long as they match the palindrome "grows".
+
+This algorithm has at most strlen(s) starting points for the search.
+From every starting point one might at most need to compare 2x p positions
+where p = 1 to 0.5 strlen(s) => so performance is O(n^2) worst case.
+Worst case is a string with all the same characters e.g. "aaaaaaaaaa".
+
+Note the algorithm can be optimized by stopping when the middle point
+is "0.5 maxLengthSoFar" from the end of the string. NB in the last part
+no longer palindrome will fit.
 
 This library is mainly for educational purpose, however other
 applications are possible. Please share your ideas.
